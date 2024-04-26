@@ -48,7 +48,7 @@
                         <td>
                             <a href="{{ route('product.edit', ['product' => $product]) }}"
                                 class="link link-warning">Edit</a>
-                            <form method="post" action="">
+                            <form method="post" action="{{ route('product.destroy', ['product' => $product]) }}">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="link link-error">Delete</button>
