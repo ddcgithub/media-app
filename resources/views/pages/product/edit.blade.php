@@ -18,7 +18,7 @@
         @endif
     </div>
 
-    <form method="post" action="{{ route('product.update', ['product' => $product]) }}">
+    <form method="post" enctype="multipart/form-data" action="{{ route('product.update', ['product' => $product]) }}">
         @csrf
         @method('put')
 
@@ -28,8 +28,10 @@
         </div>
 
         <div>
+            <img src="{{ $product->getImageURL() }}" alt="" width="50px">
+            <span>{{ $product->image }}</span>
             <span class="label-text">Image</span>
-            <input type="file" name="image" value="{{ $product->image }}" class="file-input file-input-bordered w-full max-w-xs" />
+            <input type="file" name="image" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp" value="{{ $product->image }}" class="file-input file-input-bordered w-full max-w-xs" />
         </div>
 
         <div>

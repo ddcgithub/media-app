@@ -20,4 +20,12 @@ class Product extends Model
         'group',
         'notes'
     ];
+
+    public function getImageURL()
+    {
+        if($this->image) {
+            return url('storage/'. $this->image);
+        }
+        return "https://cdn2.iconfinder.com/data/icons/admin-tools-2/25/image2-512.png";
+    }
 }

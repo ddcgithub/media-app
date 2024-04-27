@@ -18,7 +18,7 @@
         @endif
     </div>
 
-    <form method="post" action="{{ route('product.store') }}">
+    <form method="post" enctype="multipart/form-data" action="{{ route('product.store') }}">
         @csrf
         @method('post')
 
@@ -29,7 +29,7 @@
 
         <div>
             <span class="label-text">Image</span>
-            <input type="file" name="image" class="file-input file-input-bordered w-full max-w-xs" />
+            <input type="file" name="image" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp" class="file-input file-input-bordered w-full max-w-xs" />
         </div>
 
         <div>

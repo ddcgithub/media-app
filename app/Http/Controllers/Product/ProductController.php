@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -25,9 +26,9 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $request->validate([
             'name' => 'required',
-            'image' => 'nullable',
+            'image' => 'mimes:jpg,jpeg,png,gif,bmp,webp|max:5000|nullable',
             'category' => 'required',
             'type' => 'required',
             'quantity' => 'required|numeric',
@@ -35,8 +36,24 @@ class ProductController extends Controller
             'notes' => 'nullable'
         ]);
 
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $fileName = time().'.'.$extension;
+        $path = 'uploads/images/';
+        $file->move($path, $fileName);
+
+        $data = [
+            'name' => $request->name,
+            'image' => $request->$path.$fileName,
+            'category' => $request->category,
+            'type' => $request->type,
+            'quantity' => $request->quantity,
+            'group' => $request->group,
+            'notes' => $request->notes
+        ];
+
         $newProduct = Product::create($data);
-        // dd($request->name);
+
         return redirect(route('product.index'));
     }
 
@@ -47,7 +64,7 @@ class ProductController extends Controller
 
     public function update(Product $product, Request $request)
     {
-        $data = $request->validate([
+        $validated = $request->validate([
             'name' => 'required',
             'image' => 'nullable',
             'category' => 'required',
@@ -57,7 +74,30 @@ class ProductController extends Controller
             'notes' => 'nullable'
         ]);
 
-        $product->update($data);
+        if(request()->has('image')) {
+            $imagePath = request()->file('image')->store('product','public');
+            $validated['image'] = $imagePath;
+
+            // Storage::disk('public')->delete($product->image);
+        }
+
+        // $file = $request->file('image');
+        // $extension = $file->getClientOriginalExtension();
+        // $fileName = time().'.'.$extension;
+        // $path = 'uploads/images/';
+        // $file->move($path, $fileName);
+
+        // $data = [
+        //     'name' => $request->name,
+        //     'image' => $request->$path.$fileName,
+        //     'category' => $request->category,
+        //     'type' => $request->type,
+        //     'quantity' => $request->quantity,
+        //     'group' => $request->group,
+        //     'notes' => $request->notes
+        // ];
+
+        $product->update($validated);
 
         return redirect(route('product.index'))->with('success', 'Product Updated Succesfully');
     }

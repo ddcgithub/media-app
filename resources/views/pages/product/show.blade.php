@@ -39,7 +39,7 @@
                     <tr class="bg-base-200">
                         <th>{{ $loop->index + 1 }}</th>
                         <td>{{ $product->name }}</td>
-                        <td>{{ $product->image }}</td>
+                        <td><img src="{{ $product->getImageURL() }}" alt="" width="50px"></td>
                         <td>{{ $product->category }}</td>
                         <td>{{ $product->type }}</td>
                         <td>{{ $product->quantity }}</td>
@@ -59,4 +59,6 @@
             </tbody>
         </table>
     </div>
+
+    {{-- {{ $products->links() }} --}}
 </x-guest-layout>
