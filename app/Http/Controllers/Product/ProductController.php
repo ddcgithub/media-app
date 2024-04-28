@@ -28,7 +28,7 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png,gif,bmp,webp|max:5000|nullable',
+            'image' => 'mimes:jpg,jpeg,png,gif,bmp,webp|max:5000|nullable',
             'category' => 'required',
             'type' => 'required',
             'quantity' => 'required|numeric',
@@ -39,8 +39,6 @@ class ProductController extends Controller
         if(request()->has('image')) {
             $imagePath = request()->file('image')->store('product','public');
             $validated['image'] = $imagePath;
-
-            // Storage::disk('public')->delete($product->image);
         }
 
         $newProduct = Product::create($validated);
@@ -57,7 +55,7 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png,gif,bmp,webp|max:5000|nullable',
+            'image' => 'mimes:jpg,jpeg,png,gif,bmp,webp|max:5000|nullable',
             'category' => 'required',
             'type' => 'required',
             'quantity' => 'required|numeric',
@@ -69,7 +67,10 @@ class ProductController extends Controller
             $imagePath = request()->file('image')->store('product','public');
             $validated['image'] = $imagePath;
 
-            // Storage::disk('public')->delete($product->image);
+            if( $product->image != null ) {
+                Storage::disk('public')->delete($product->image);
+            }
+
         }
 
         $product->update($validated);

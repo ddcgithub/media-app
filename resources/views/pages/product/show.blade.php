@@ -1,7 +1,5 @@
 <x-guest-layout>
-    <x-slot name="title">Welcome</x-slot>
-
-    <h1>Product Show</h1>
+    <x-slot name="title">Product lists</x-slot>
 
     <div>
         @if (session()->has('success'))
@@ -51,7 +49,7 @@
                             <form method="post" action="{{ route('product.destroy', ['product' => $product]) }}">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="link link-error">Delete</button>
+                                <button type="submit" class="link link-error" onclick="return confirm('Do you want to delete this product?')">Delete</button>
                             </form>
                         </td>
                     </tr>
