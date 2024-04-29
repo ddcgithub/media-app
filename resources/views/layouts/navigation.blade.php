@@ -38,6 +38,10 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
+                        <x-dropdown-link :href="route('product.index')">
+                            {{ __('Product') }}
+                        </x-dropdown-link>
+
                         <x-dropdown-link :href="route('product.create')">
                             {{ __('Product create') }}
                         </x-dropdown-link>

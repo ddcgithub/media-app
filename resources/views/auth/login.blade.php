@@ -1,7 +1,9 @@
 <x-guest-layout>
     <x-slot name="title">Login</x-slot>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <img class="mx-auto w-auto" style="height:12rem;" src="https://ddc.moph.go.th/uploads/ckeditor2/odpc6/images/logo%E0%B8%81%E0%B8%A3%E0%B8%A1%E0%B8%84%E0%B8%A7%E0%B8%9A%E0%B8%84%E0%B8%B8%E0%B8%A1%E0%B9%82%E0%B8%A3%E0%B8%84%20new%2064.png"
@@ -39,16 +41,15 @@
                 </label>
             </div> --}}
 
-                <div class="flex items-center justify-end mt-4">
-                    {{-- @if (Route::has('password.request'))
+                <div class="flex items-center justify-between mt-4">
+                    @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif --}}
-
+                @endif
                     <x-primary-button
-                        class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         {{ __('Log in') }}
                     </x-primary-button>
                 </div>
