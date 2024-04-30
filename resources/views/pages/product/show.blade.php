@@ -22,12 +22,12 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th>Image</th>
-                    <th>Category</th>
-                    <th>Type</th>
-                    <th>Quantity</th>
-                    <th>Group</th>
+                    <th>รูปภาพ</th>
+                    <th>ชื่อเรื่อง</th>
+                    <th>หมวดหมู่</th>
+                    <th>ประเภทสื่อ</th>
+                    <th>จำนวน</th>
+                    <th>กลุ่ม/ศูนย์</th>
                     <th>Notes</th>
                     <th>Actions</th>
                 </tr>
@@ -36,8 +36,8 @@
                 @foreach ($products as $product)
                     <tr class="bg-base-200">
                         <th>{{ $loop->index + 1 }}</th>
+                        <td><img src="{{ $product->getImageURL() }}" alt="" width="100px"></td>
                         <td>{{ $product->name }}</td>
-                        <td><img src="{{ $product->getImageURL() }}" alt="" width="50px"></td>
                         <td>{{ $product->category }}</td>
                         <td>{{ $product->type }}</td>
                         <td>{{ $product->quantity }}</td>
