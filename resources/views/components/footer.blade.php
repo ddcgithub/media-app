@@ -2,7 +2,7 @@
     <div class="container mx-auto px-4">
 
         <aside class="items-center grid-flow-col">
-            <p>Copyright © 2024 - All right reserved By Tum Patipan</p>
+            <p>Copyright © 2024 Develop by Patipan Laily - All right reserved</p>
         </aside>
 
     </div>

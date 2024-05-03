@@ -29,7 +29,8 @@
                     <th>จำนวน</th>
                     <th>กลุ่ม/ศูนย์</th>
                     <th>Notes</th>
-                    <th>Actions</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,13 +45,18 @@
                         <td>{{ $product->group }}</td>
                         <td>{{ $product->notes }}</td>
                         <td>
-                            <a href="{{ route('product.edit', ['product' => $product]) }}"
-                                class="link link-warning">Edit</a>
-                            <form method="post" action="{{ route('product.destroy', ['product' => $product]) }}">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="link link-error" onclick="return confirm('Do you want to delete this product?')">Delete</button>
-                            </form>
+                            <span class="hidden sm:block">
+                                <a href="{{ route('product.edit', ['product' => $product]) }}" class="btn btn-xs btn-warning">Edit</a>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="hidden sm:block">
+                                <form method="post" action="{{ route('product.destroy', ['product' => $product]) }}">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-xs btn-error">Delete</button>
+                                </form>
+                            </span>
                         </td>
                     </tr>
                 @endforeach

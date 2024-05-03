@@ -32,12 +32,12 @@
 
                 {{-- Image --}}
                 <div class="mt-4 lg:row-span-3 lg:mt-0">
-                    <img src="{{ $products->getImageURL() }}" alt="" class="w-100">
+                    <img src="{{ $products->getImageURL() }}" alt="" class="w-full" style="height:480px;object-fit:contain;">
                 </div>
 
                 {{-- Detail --}}
-                <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
-                    <div class="mt-10">
+                <div class="py-6 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+                    <div class="mt-4">
                         <h3 class="text-sm font-medium text-gray-900">Details</h3>
 
                         <div class="mt-4">
