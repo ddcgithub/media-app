@@ -38,12 +38,11 @@
                     <tr class="bg-base-200">
                         <th>{{ $loop->index + 1 }}</th>
                         <td><img src="{{ $product->getImageURL() }}" alt="" width="100px"></td>
-                        <td>{{ $product->name }}</td>
+                        <td>{{ Str::limit($product->name, 50) }}</td>
                         <td>{{ $product->category }}</td>
                         <td>{{ $product->type }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>{{ $product->group }}</td>
-                        <td>{{ $product->notes }}</td>
                         <td>
                             <span class="hidden sm:block">
                                 <a href="{{ route('product.edit', ['product' => $product]) }}" class="btn btn-xs btn-warning">Edit</a>
