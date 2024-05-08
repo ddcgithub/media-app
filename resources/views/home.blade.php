@@ -16,7 +16,7 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
 
-        @foreach ($products as $product)
+        {{-- @foreach ($products as $product)
             <div class="card bg-base-100 shadow-xl">
                 <div>
                     <img src="{{ $product->getImageURL() }}" alt="" class="rounded-t-2xl" style="width:100%;height:250px;object-fit:cover;" />
@@ -29,11 +29,11 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @endforeach --}}
 
     </div>
 
-    <div class="my-6">
+    {{-- <div class="my-6">
         {{ $products->links() }}
-    </div>
+    </div> --}}
 </x-guest-layout>

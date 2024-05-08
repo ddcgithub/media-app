@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('address');
             $table->string('phone_og')->unique();
             $table->string('organization');
-            $table->string('role')->default('0');
+            $table->string('role')->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
