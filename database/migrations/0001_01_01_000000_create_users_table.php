@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->text('address');
-            $table->string('phone_og')->unique();
+            $table->string('phone_og');
             $table->string('organization');
             $table->string('role')->default('user');
             $table->timestamp('email_verified_at')->nullable();

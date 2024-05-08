@@ -9,7 +9,7 @@
                 @csrf
 
                 <div class="border-b border-gray-900/10 mb-4">
-                    <h2 class="text-base font-semibold leading-7 text-gray-900 mb-4">ข้อมูลผู้เบิก</h2>
+                    <h2 class="text-base font-semibold leading-7 text-gray-900 mb-4">ข้อมูลผู้ขอเบิก</h2>
 
                     <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 mb-4">
                         <!-- First name -->
@@ -31,8 +31,8 @@
 
                     <!-- Phone -->
                     <div class="mb-4">
-                        <x-input-label for="phone" :value="__('เบอร์โทรผู้เบิก')" />
-                        <x-text-input id="phone" class="block mt-1 w-full" type="number" name="phone"
+                        <x-input-label for="phone" :value="__('เบอร์โทรผู้ขอเบิก')" />
+                        <x-text-input id="phone" class="block mt-1 w-full" type="tel" name="phone"
                             :value="old('phone')" required autocomplete="username" />
                         <x-input-error :messages="$errors->get('phone')" class="mt-2" />
                     </div>
@@ -60,9 +60,9 @@
                     <!-- Phone Organization -->
                     <div class="mb-4">
                         <x-input-label for="phone_og" :value="__('เบอร์โทรหน่วยงาน')" />
-                        <x-text-input id="phone_og" class="block mt-1 w-full" type="number" name="phone_og"
+                        <x-text-input id="phone_og" class="block mt-1 w-full" type="tel" name="phone_og"
                             :value="old('phone_og')" required autocomplete="phone_og" />
-                        <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('phone_og')" class="mt-2" />
                     </div>
 
                     <!-- Address -->
