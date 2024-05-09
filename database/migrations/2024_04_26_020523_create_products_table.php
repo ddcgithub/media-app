@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image')->nullable();
-            $table->string('category_id');
-            $table->string('type_id');
-            $table->string('group_id');
+            $table->string('category');
+            $table->string('type');
+            $table->string('group');
             $table->integer('quantity');
             $table->text('notes')->nullable();
             $table->timestamps();

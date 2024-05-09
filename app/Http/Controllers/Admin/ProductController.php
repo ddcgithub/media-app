@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Product;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,14 +14,14 @@ class ProductController extends Controller
         $products = Product::all();
         // dd($products);
 
-        return view('pages/product.show', ['products' => $products]);
+        return view('admin.product.show', ['products' => $products]);
 
         // return view('welcome.index', compact('lists', 'request'));
     }
 
     public function create()
     {
-        return view('pages/product.create');
+        return view('admin.product.create');
     }
 
     public function store(Request $request)
@@ -48,7 +48,7 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('pages/product.edit', ['product' => $product]);
+        return view('admin.product.edit', ['product' => $product]);
     }
 
     public function update(Product $product, Request $request)

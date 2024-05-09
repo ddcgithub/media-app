@@ -6,7 +6,7 @@
         <div class="hero-overlay bg-opacity-60"></div>
         <div class="hero-content text-center text-neutral-content">
             <div class="max-w-md">
-                <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+                <h1 class="mb-5 text-5xl font-bold">Home Page</h1>
                 <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
                     exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 <button class="btn btn-primary">Get Started</button>
@@ -16,20 +16,25 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
 
-        {{-- @foreach ($products as $product)
-            <div class="card bg-base-100 shadow-xl">
-                <div>
-                    <img src="{{ $product->getImageURL() }}" alt="" class="rounded-t-2xl" style="width:100%;height:250px;object-fit:cover;" />
-                </div>
-                <div class="card-body justify-between p-4">
-                    <h2 class="card-title">{{ Str::limit($product->name, 65) }}</h2>
-                    <div class="card-actions justify-end">
-                        <a class="btn btn-primary w-full"
-                            href="{{ route('product.detail', ['product' => $product]) }}">View</a>
+        @if (!empty($products))
+            @foreach ($products as $product)
+                <div class="card bg-base-100 shadow-xl">
+                    <div>
+                        <img src="{{ $product->getImageURL() }}" alt="" class="rounded-t-2xl"
+                            style="width:100%;height:250px;object-fit:cover;" />
+                    </div>
+                    <div class="card-body justify-between p-4">
+                        <h2 class="card-title">{{ Str::limit($product->name, 65) }}</h2>
+                        <div class="card-actions justify-end">
+                            <a class="btn btn-primary w-full"
+                                href="{{ route('product.detail', ['product' => $product]) }}">View</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach --}}
+            @endforeach
+        @else
+            <h2 class="text-error">No data</h2>
+        @endif
 
     </div>
 

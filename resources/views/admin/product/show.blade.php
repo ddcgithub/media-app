@@ -28,37 +28,41 @@
                     <th>ประเภทสื่อ</th>
                     <th>จำนวน</th>
                     <th>กลุ่ม/ศูนย์</th>
-                    <th>Notes</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($products as $product)
-                    <tr class="bg-base-200">
-                        <th>{{ $loop->index + 1 }}</th>
-                        <td><img src="{{ $product->getImageURL() }}" alt="" width="100px"></td>
-                        <td>{{ Str::limit($product->name, 50) }}</td>
-                        <td>{{ $product->category }}</td>
-                        <td>{{ $product->type }}</td>
-                        <td>{{ $product->quantity }}</td>
-                        <td>{{ $product->group }}</td>
-                        <td>
-                            <span class="hidden sm:block">
-                                <a href="{{ route('product.edit', ['product' => $product]) }}" class="btn btn-xs btn-warning">Edit</a>
-                            </span>
-                        </td>
-                        <td>
-                            <span class="hidden sm:block">
+
+                @if (!empty($products))
+                    @foreach ($products as $product)
+                        <tr class="bg-base-200">
+                            <th>{{ $loop->index + 1 }}</th>
+                            <td><img src="{{ $product->getImageURL() }}" alt="" width="100px"></td>
+                            <td>{{ Str::limit($product->name, 50) }}</td>
+                            <td>{{ $product->category }}</td>
+                            <td>{{ $product->type }}</td>
+                            <td>{{ $product->quantity }}</td>
+                            <td>{{ $product->group }}</td>
+                            <td>
+                                <a href="{{ route('product.edit', ['product' => $product]) }}"
+                                    class="btn btn-xs btn-warning">Edit</a>
+                            </td>
+                            <td>
                                 <form method="post" action="{{ route('product.destroy', ['product' => $product]) }}">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-xs btn-error">Delete</button>
                                 </form>
-                            </span>
-                        </td>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr class="bg-base-200">
+                        <td colspan="9" class="text-center text-error">No data</td>
                     </tr>
-                @endforeach
+                @endif
+
             </tbody>
         </table>
     </div>

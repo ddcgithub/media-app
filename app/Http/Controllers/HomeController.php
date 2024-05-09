@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
         $products = Product::paginate(15);
 
-        return view('admin.dashboard', ['products' => $products]);
+        return view('home', ['products' => $products]);
     }
 
     public function detail($product)
