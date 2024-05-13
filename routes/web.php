@@ -3,11 +3,16 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 // For guest
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/detail/{product}', [HomeController::class, 'detail'])->name('product.detail');
+
+Route::get('/order', [OrderController::class, 'index']);
+Route::get('/order/create', [OrderController::class, 'create']);
+Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
