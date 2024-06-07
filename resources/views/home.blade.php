@@ -28,6 +28,7 @@
                         <div class="card-actions justify-end">
                             <a class="btn btn-primary w-full"
                                 href="{{ route('product.detail', ['product' => $product]) }}">View</a>
+                            <p class="btn-holder"><a href="{{ route('product.add.order', ['product' => $product]) }}" class="btn btn-outline-danger">Add to cart</a> </p>
                         </div>
                     </div>
                 </div>

@@ -14,6 +14,9 @@ Route::get('/order', [OrderController::class, 'index']);
 Route::get('/order/create', [OrderController::class, 'create']);
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 
+Route::get('/order/{product}', [OrderController::class, 'addOrder'])->name('product.add.order');
+Route::get('/shopping-cart', [OrderController::class, 'productCart'])->name('shopping.cart');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
