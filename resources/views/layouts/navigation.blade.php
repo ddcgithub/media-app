@@ -26,21 +26,7 @@
         <div class="flex">
             <div class="space-x-8 sm:-my-px sm:ms-10 sm:flex">
                 <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                    {{ __('Login') }}
-                </x-nav-link>
-            </div>
-            <a class="btn btn-outline-dark" href="{{ route('shopping.cart') }}">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge bg-danger">{{ count((array) session('cart')) }}</span>
-            </a>
-            @if(session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            <div class="space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                    {{ __('เข้าสู่ระบบ') }}
+                    <i class="fa-solid fa-right-to-bracket"></i> {{ __('เข้าสู่ระบบ') }}
                 </x-nav-link>
             </div>
 
