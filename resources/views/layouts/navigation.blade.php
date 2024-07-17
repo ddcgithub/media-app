@@ -40,14 +40,14 @@
 
             <div class="space-x-8 sm:-my-px sm:ms-10 sm:flex">
                 <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                    {{ __('Login') }}
+                    {{ __('เข้าสู่ระบบ') }}
                 </x-nav-link>
             </div>
 
             @if (Route::has('register'))
                 <div class="space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                        {{ __('Register') }}
+                        {{ __('ลงทะเบียนเบิกสื่อ') }}
                     </x-nav-link>
                 </div>
             @endif
@@ -75,7 +75,7 @@
 
                 <x-slot name="content">
                     <x-dropdown-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
+                        {{ __('ข้อมูลผู้ใช้') }}
                     </x-dropdown-link>
 
                     @if (Auth::user()->role === 'admin')
@@ -95,7 +95,7 @@
                         <x-dropdown-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                            {{ __('Log Out') }}
+                            {{ __('ออกจากระบบ') }}
                         </x-dropdown-link>
                     </form>
                 </x-slot>

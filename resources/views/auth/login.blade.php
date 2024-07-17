@@ -41,12 +41,12 @@
                 </div> --}}
 
                 <div class="flex items-center justify-between mt-4">
-                    @if (Route::has('password.request'))
+                    {{-- @if (Route::has('password.request'))
                         <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                             href="{{ route('password.request') }}">
                             {{ __('Forgot your password?') }}
                         </a>
-                    @endif
+                    @endif --}}
 
                     <x-primary-button
                         class="flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
